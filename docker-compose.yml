@@ -1,0 +1,13 @@
+services:
+  rstudio:
+    image: rocker/tidyverse
+    ports: 
+      - 8787:8787
+    environment:
+      - ROOT=true
+      - DISABLE_AUTH=true
+    volumes:
+      - "./:/home/rstudio/"
+      # I recommend separating the data/outputs
+      - "./data/:/home/rstudio/data/"
+      - "./out/:/home/rstudio/out/"
